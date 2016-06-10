@@ -129,7 +129,7 @@ def parse_a(q, fn):
                 continue
 
             # 1 arg: addr
-            m = re.match(ur'(copyfrom|copyto|add|sub)\s+(\d+)$', line)
+            m = re.match(ur'(copyfrom|copyto|add|sub|bumpup|bumpdn)\s+(\d+)$', line)
             if m:
                 cmd, addr = m.group(1), int(m.group(2))
                 if cmd not in q.cmds:
@@ -296,6 +296,28 @@ def run(q, a, inn):
                 pc = to_pc
             else:
                 pc += 1
+            continue
+
+        if cmd == 'bumpup':
+            addr = inst[2]
+            if mem[addr] is None:
+                err(u'cannot bumpup addr {}'.format(addr))
+            reject_str(mem[addr], u'addr {} contains a character'.format(addr))
+
+            mem[addr] += 1
+            acc = mem[addr]
+            pc += 1
+            continue
+
+        if cmd == 'bumpdn':
+            addr = inst[2]
+            if mem[addr] is None:
+                err(u'cannot bumpdn addr {}'.format(addr))
+            reject_str(mem[addr], u'addr {} contains a character'.format(addr))
+
+            mem[addr] -= 1
+            acc = mem[addr]
+            pc += 1
             continue
 
         err(u'unknown command: {}'.format(cmd))

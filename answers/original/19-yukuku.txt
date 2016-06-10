@@ -1,0 +1,27 @@
+ulang:
+
+inbox
+copyto 0
+jumpn neg
+jumpz zero
+jump pos
+
+zero:
+outbox
+jump ulang
+
+pos:
+outbox
+bumpdn 0
+jumpz last
+jump pos
+
+neg:
+outbox
+bumpup 0
+jumpz last
+jump neg
+
+last:
+outbox
+jump ulang

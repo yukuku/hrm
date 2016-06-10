@@ -1,0 +1,13 @@
+ulang:
+
+inbox
+jumpn abs
+outbox
+jump ulang
+
+abs:
+copyto 0
+sub 0
+sub 0
+outbox
+jump ulang
