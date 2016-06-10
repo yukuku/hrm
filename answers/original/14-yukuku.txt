@@ -1,0 +1,21 @@
+ulang:
+
+inbox
+copyto 0
+inbox
+copyto 1
+sub 0
+jumpn pertama
+jump kedua
+
+pertama:
+copyfrom 0
+jump out
+
+kedua:
+copyfrom 1
+
+out:
+outbox
+
+jump ulang
