@@ -1,0 +1,20 @@
+// Original level 19: Countdown
+// Challenge: 10/82
+//
+// For each number in the INBOX, send that number to the OUTBOX, followed by all numbers down to (or up to) zero. It's a countdown!
+// 
+// You got new commands! They add ONE or subtract ONE from an item on the floor. The result is given back to you, and for your convenience, also written right back to the floor. BUMP!
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 10

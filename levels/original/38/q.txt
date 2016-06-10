@@ -1,0 +1,21 @@
+// Original level 38: Digit Exploder
+// Challenge: 30/165
+//
+// Grab each number from the INBOX, and send its digits to the OUTBOX. For example, 123 becomes 1, 2, 3.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 12
+mem[9] = 0
+mem[10] = 10
+mem[11] = 100

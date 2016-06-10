@@ -1,6 +1,11 @@
+// Original level 2: Busy Mail Room
+// Challenge: 3/25
+//
 // Grab each thing from the INBOX, and drop each one into the OUTBOX.
+// 
 // You got a new command! You can drag JUMP's arrow to jump to different lines within your program.
 
 inbox
 outbox
 jump
+

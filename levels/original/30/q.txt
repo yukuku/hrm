@@ -1,0 +1,42 @@
+// Original level 30: String Storage Floor
+// Challenge: 7/203
+//
+// Each thing in the INBOX is an address of a tile on the floor. For each address provided in the INBOX, OUTBOX the requested item from the floor and ALL FOLLOWING items on the floor until you reach a ZERO. Repeat!
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 25
+mem[0] = G
+mem[1] = E
+mem[2] = T
+mem[3] = 0
+mem[4] = T
+mem[5] = H
+mem[6] = 0
+mem[7] = T
+mem[8] = A
+mem[9] = R
+mem[10] = 0
+mem[11] = A
+mem[12] = W
+mem[13] = A
+mem[14] = K
+mem[15] = E
+mem[16] = 0
+mem[17] = I
+mem[18] = S
+mem[19] = 0
+mem[20] = X
+mem[21] = X
+mem[22] = X
+mem[23] = 0

@@ -1,0 +1,24 @@
+// Original level 34: Vowel Incinerator
+// Challenge: 13/323
+//
+// Send everything from the INBOX to the OUTBOX, except the vowels.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 10
+mem[0] = A
+mem[1] = E
+mem[2] = I
+mem[3] = O
+mem[4] = U
+mem[5] = 0

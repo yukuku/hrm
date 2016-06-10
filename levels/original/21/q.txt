@@ -1,0 +1,21 @@
+// Original level 21: Zero Terminated Sum
+// Challenge: 10/72
+//
+// The INBOX is filled with zero terminated strings! What's that? Ask me. Your Boss.
+// 
+// Add together all the numbers in each string. When you reach the end of a string (marked by a ZERO), put your sum in the OUTBOX. Reset and report for each string.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 6
+mem[5] = 0

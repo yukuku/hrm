@@ -1,0 +1,19 @@
+// Original level 40: Prime Factory
+// Challenge: 28/399
+//
+// For each thing in the INBOX, send its PRIME FACTORS to the OUTBOX in order from smallest to largest.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 25
+mem[24] = 0

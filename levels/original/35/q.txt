@@ -1,0 +1,19 @@
+// Original level 35: Duplicate Removal
+// Challenge: 17/167
+//
+// Send everything from the INBOX to the OUTBOX, unless you've seen the same value before. Discard any duplicates.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 15
+mem[14] = 0

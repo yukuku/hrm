@@ -1,0 +1,33 @@
+// Original level 32: Inventory Report
+// Challenge: 16/393
+//
+// For each thing in the INBOX, send to the OUTBOX the total number of matching items on the FLOOR.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 20
+mem[0] = B
+mem[1] = A
+mem[2] = X
+mem[3] = B
+mem[4] = C
+mem[5] = X
+mem[6] = A
+mem[7] = B
+mem[8] = A
+mem[9] = X
+mem[10] = C
+mem[11] = B
+mem[12] = A
+mem[13] = B
+mem[14] = 0

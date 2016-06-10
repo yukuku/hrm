@@ -1,0 +1,18 @@
+// Original level 14: Maximization Room
+// Challenge: 10/34
+//
+// Grab TWO things form the INBOX, and put only the BIGGER of the two in the OUTBOX. If they are equal, just pick either one. Repeat!
+// 
+// You got a new command! Jumps only if the thing you're holding is negative. (Less than zero.) Otherwise continues to the next line.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+jump
+jumpz
+jumpn
+
+mem size 3

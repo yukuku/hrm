@@ -1,0 +1,15 @@
+// Original level 10: Octoplier Suite
+// Challenge: 9/36
+//
+// For each thing in the INBOX, multiply it by 8, and put the result in the OUTBOX.
+// 
+// Using a bunch of ADD commands is easy, but WASTEFUL! Can you do it using only 3 ADD commands? Management is watching.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+jump
+
+mem size 5

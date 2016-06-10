@@ -1,0 +1,20 @@
+// Original level 36: Alphabetizer
+// Challenge: 39/109
+//
+// The INBOX contains exactly two words. Determine which word comes first, if you were to order them alphabetically, and send only that word to the OUTBOX.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 25
+mem[24] = 10
+mem[23] = 0

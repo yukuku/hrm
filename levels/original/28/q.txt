@@ -1,0 +1,18 @@
+// Original level 28: Three Sort
+// Challenge: 34/78
+//
+// For each THRREE THINGS in the INBOX, send them to the OUTBOX in order from smallest to largest.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 10

@@ -1,0 +1,21 @@
+// Original level 20: Multiplication Workshop
+// Challenge: 15/109
+//
+// For each two things in the INBOX, multiply them, and OUTBOX the result. Don't worry about negative numbers for now.
+// 
+// You got... LABELS! They can help you remember the purpose of each tile on the floor. Just tap any tile on the floor to edit.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 10
+mem[9] = 0

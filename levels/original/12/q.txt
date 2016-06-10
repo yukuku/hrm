@@ -1,0 +1,13 @@
+// Original level 12: Tetracontiplier
+// Challenge: 14/56
+//
+// For each thing in the INBOX, multiply it by 40, and put the result in the OUTBOX.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+jump
+
+mem size 5

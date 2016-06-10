@@ -1,0 +1,16 @@
+// Original level 16: Absolute Positivity
+// Challenge: 8/36
+//
+// Send each thing from the INBOX to the OUTBOX, BUT, if a number is negative, first remove its negative sign.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+jump
+jumpz
+jumpn
+
+mem size 3

@@ -1,0 +1,34 @@
+// Original level 37: Scavenger Chain
+// Challenge: 8/63
+//
+// Each pair on the floor contains:
+// 1. data
+// 2. the address of another one of the pairs
+// 
+// A scrambled chain! Each thing in the INBOX is an address of one of the pairs. OUTBOX the data for that pair, and also the data in all the following pairs in the chain. The chain ends when you reach a negative address. Repeat until the INBOX is empty.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 25
+mem[11] = 20
+mem[10] = P
+mem[13] = S
+mem[20] = E
+mem[14] = 3
+mem[23] = A
+mem[1] = 13
+mem[0] = E
+mem[3] = C
+mem[4] = 23
+mem[24] = 10
+mem[21] = -1

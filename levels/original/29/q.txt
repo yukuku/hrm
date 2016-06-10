@@ -1,0 +1,33 @@
+// Original level 29: Storage Floor
+// Challenge: 5/25
+//
+// Imagine each thing in the INBOX is an address. And each address refers to a tile 0-9 on the floor. Your task: For each address in the INBOX, pick up the letter at that address and OUTBOX it.
+// 
+// Congratulations! You can now access tiles on the floor INDIRECTLY! Observe this example to see how it works, compared to what you've been doing so far:
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 15
+mem[0] = N
+mem[1] = K
+mem[2] = A
+mem[3] = E
+mem[4] = R
+mem[5] = D
+mem[6] = O
+mem[7] = L
+mem[8] = Y
+mem[9] = J
+mem[10] = None
+mem[11] = None
+mem[12] = 8

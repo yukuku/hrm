@@ -1,0 +1,14 @@
+// Original level 9: Zero Preservation Initiative
+// Challenge: 5/25
+//
+// Send only the ZEROs to the OUTBOX.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+jump
+jumpz
+
+mem size 9

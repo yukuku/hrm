@@ -1,0 +1,19 @@
+// Original level 31: String Reverse
+// Challenge: 11/122
+//
+// For each zero terminated string in the INBOX, reverse it and put the result in the OUTBOX. Repeat!
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 15
+mem[14] = 0

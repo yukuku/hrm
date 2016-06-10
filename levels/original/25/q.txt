@@ -1,0 +1,19 @@
+// Original level 25: Cumulative Countdown
+// Challenge: 12/82
+//
+// For each thing in the INBOX, OUTBOX the sum of itself plus all numbers down to zero. For example, if INBOX is 3, OUTBOX should be 6, because 3+2+1 = 6.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 6
+mem[5] = 0

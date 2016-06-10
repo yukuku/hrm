@@ -1,0 +1,17 @@
+// Original level 13: Equalization Room
+// Challenge: 9/27
+//
+// Get two things from the INBOX. If they are EQUAL, put ONE of them in the OUTBOX. Discard non-equal pairs. Repeat!
+// 
+// You got... COMMENTS! You can use them, if you like, to mark sections of your program.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+jump
+jumpz
+
+mem size 3

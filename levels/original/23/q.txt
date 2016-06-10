@@ -1,0 +1,20 @@
+// Original level 23: The Littlest Number
+// Challenge: 13/75
+//
+// For each zero terminated string in the INBOX, send to the OUTBOX only the SMALLEST number you've seen in that string. You will never be given an empty string. Reset and repeat for each string.
+// 
+// What's a "zero terminated string"? Go ask your boss on the previous floor!
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 10

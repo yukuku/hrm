@@ -1,0 +1,16 @@
+// Original level 7: Zero Exterminator
+// Challenge: 4/23
+//
+// Send all things that ARE NOT ZERO to the OUTBOX.
+// 
+// You got a new command! It jumps ONLY if the value you are holding is ZERO. Otherwise it continues to the next line.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+jump
+jumpz
+
+mem size 9

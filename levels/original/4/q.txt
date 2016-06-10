@@ -1,0 +1,14 @@
+// Original level 4: Scrambler Handler
+// Challenge: 7/21
+//
+// Grab the first TWO things from the INBOX and drop them into the OUTBOX in the reverse order. Repeat until the INBOX is empty.
+// 
+// You got a new command! Feel free to COPYTO wherever you like on the carpet. It will be cleaned later.
+
+inbox
+outbox
+copyfrom
+copyto
+jump
+
+mem size 3

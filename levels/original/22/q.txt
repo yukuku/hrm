@@ -1,0 +1,21 @@
+// Original level 22: Fibonacci Visitor
+// Challenge: 19/156
+//
+// For each thing in the INBOX, send to the OUTBOX the full Fibonacci Sequence up to, but not exceeding that value. For example, if INBOX is 10, OUTBOX should be 1 1 2 3 5 8. What's a Fibonacci Sequence? Ask your boss, or a friendly search box.
+// 
+// 1 1 2 3 5 8 13 21 34 55 89 ...
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 10
+mem[9] = 0

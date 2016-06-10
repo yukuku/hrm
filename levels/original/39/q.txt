@@ -1,0 +1,22 @@
+// Original level 39: Re-Coordinator
+// Challenge: 14/76
+//
+// Each number in the INBOX is an address of a tile on the floor. Send to the OUTBOX the coordinates of that tile, column first, row second.
+// 
+// For example, an address of 6 has coordinates 2, 1. You may ask your boss for more examples.
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 16
+mem[15] = 4
+mem[14] = 0

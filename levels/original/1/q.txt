@@ -1,4 +1,10 @@
+// Original level 1: Mail Room
+// Challenge: 6/6
+//
+// Drag commands into this area to build a program.
+// 
 // Your program should tell your worker to grab each thing from the INBOX, and drop it into the OUTBOX.
 
 inbox
 outbox
+

@@ -1,0 +1,19 @@
+// Original level 41: Sorting Floor
+// Challenge: 34/714
+//
+// For each zero terminated string in the INBOX, SORT the contents of the string, smallest first, biggest last, and put the results in the OUTBOX. Repeat for each string!
+
+inbox
+outbox
+copyfrom
+copyto
+add
+sub
+bumpup
+bumpdn
+jump
+jumpz
+jumpn
+
+mem size 25
+mem[24] = 0
