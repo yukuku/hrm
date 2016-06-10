@@ -231,6 +231,17 @@ def run(q, a, inn):
             pc += 1
             continue
 
+        if cmd == 'copyto':
+            addr = inst[2]
+            if acc is None:
+                err(u'cannot copy None to {}'.format(addr))
+
+            mem[addr] = acc
+            pc += 1
+            continue
+
+        err(u'unknown command: {}'.format(cmd))
+
     return out
 
 
