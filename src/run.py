@@ -258,6 +258,19 @@ def run(q, a, inn):
             pc += 1
             continue
 
+        if cmd == 'jumpz':
+            lbl = inst[1]
+            to_pc = a.labels.get(lbl)
+            if to_pc is None:
+                err(u'label {} is not known'.format(lbl))
+            if acc is None:
+                err(u'cannot jumpz with None at accumulator')
+            if acc == 0:
+                pc = to_pc
+            else:
+                pc += 1
+            continue
+
         err(u'unknown command: {}'.format(cmd))
 
     return out

@@ -1,0 +1,7 @@
+ulang:
+
+inbox
+jumpz ulang
+outbox
+
+jump ulang
