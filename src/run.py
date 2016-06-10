@@ -79,10 +79,10 @@ class A:
     def dump(self):
         print u'LABELS (total {}):'.format(len(self.labels))
         for k, v in self.labels.iteritems():
-            print u'  {}: {}'.format(k, v)
+            print u'  {}: pc {}'.format(k, v)
         print u'INSTS (total {}):'.format(len(self.insts))
         for pc, inst in enumerate(self.insts):
-            print u'  {}: {}'.format(pc, inst)
+            print u'  pc {}: {}'.format(pc, inst)
 
 
 def parse_a(q, fn):
@@ -129,7 +129,7 @@ def parse_a(q, fn):
                 continue
 
             # 1 arg: addr
-            m = re.match(ur'(copyfrom|copyto)\s+(\d+)$', line)
+            m = re.match(ur'(copyfrom|copyto|add|sub)\s+(\d+)$', line)
             if m:
                 cmd, addr = m.group(1), int(m.group(2))
                 if cmd not in q.cmds:
@@ -189,6 +189,10 @@ def run(q, a, inn):
     def err(desc):
         raise ValueError(u'runtime error in pc {}: {}'.format(pc, desc))
 
+    def reject_str(val, desc):
+        if isinstance(val, basestring):
+            err(desc)
+
     while True:
         if pc >= len(a.insts):
             print '* PROGRAM ENDED'
@@ -209,8 +213,9 @@ def run(q, a, inn):
 
         if cmd == 'outbox':
             if acc is None:
-                err('cannot outbox None')
+                err(u'cannot outbox None at accumulator')
             out.append(acc)
+            acc = None
             pc += 1
             continue
 
@@ -218,7 +223,7 @@ def run(q, a, inn):
             lbl = inst[1]
             to_pc = a.labels.get(lbl)
             if to_pc is None:
-                err('label {} is not known')
+                err(u'label {} is not known'.format(lbl))
             pc = to_pc
             continue
 
@@ -234,9 +239,22 @@ def run(q, a, inn):
         if cmd == 'copyto':
             addr = inst[2]
             if acc is None:
-                err(u'cannot copy None to {}'.format(addr))
+                err(u'cannot copy None to addr {}'.format(addr))
 
             mem[addr] = acc
+            pc += 1
+            continue
+
+        if cmd == 'add':
+            addr = inst[2]
+            if mem[addr] is None:
+                err(u'cannot add accumulator to None at addr {}'.format(addr))
+            reject_str(mem[addr], u'addr {} contains a character'.format(addr))
+            if acc is None:
+                err(u'cannot add addr {} to None at accumulator'.format(addr))
+            reject_str(acc, u'accumulator contains a character')
+
+            acc = acc + mem[addr]
             pc += 1
             continue
 
