@@ -271,6 +271,19 @@ def run(q, a, inn):
                 pc += 1
             continue
 
+        if cmd == 'sub':
+            addr = inst[2]
+            if mem[addr] is None:
+                err(u'cannot do accumulator sub None at addr {}'.format(addr))
+            reject_str(mem[addr], u'addr {} contains a character'.format(addr))
+            if acc is None:
+                err(u'cannot do None at accumulator sub addr {}'.format(addr))
+            reject_str(acc, u'accumulator contains a character')
+
+            acc = acc - mem[addr]
+            pc += 1
+            continue
+
         err(u'unknown command: {}'.format(cmd))
 
     return out

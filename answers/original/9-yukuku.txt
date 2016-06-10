@@ -1,0 +1,10 @@
+ulang:
+
+inbox
+jumpz keluarin
+jump ulang
+
+keluarin:
+outbox
+
+jump ulang
