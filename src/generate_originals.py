@@ -43,7 +43,8 @@ with codecs.open('../extras/original_levels.json', encoding='utf-8') as f:
                 if tiles:
                     if isinstance(tiles, list):
                         for i, tile in enumerate(tiles):
-                            fo.write(u'mem[{}] = {}\n'.format(i, tile))
+                            if tile is not None:
+                                fo.write(u'mem[{}] = {}\n'.format(i, tile))
                     elif isinstance(tiles, dict):
                         for k, tile in tiles.iteritems():
                             fo.write(u'mem[{}] = {}\n'.format(k, tile))

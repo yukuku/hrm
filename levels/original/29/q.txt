@@ -28,6 +28,4 @@ mem[6] = O
 mem[7] = L
 mem[8] = Y
 mem[9] = J
-mem[10] = None
-mem[11] = None
 mem[12] = 8
