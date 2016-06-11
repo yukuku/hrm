@@ -1,0 +1,22 @@
+ulang:
+
+copyfrom 9
+copyto 0
+inbox
+copyto 1
+inbox
+copyto 2
+
+repeat:
+jumpz fin
+copyfrom 1
+add 0
+copyto 0
+bumpdn 2
+jump repeat
+
+fin:
+copyfrom 0
+outbox
+
+jump ulang

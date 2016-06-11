@@ -1,0 +1,8 @@
+ulang:
+
+inbox
+copyto 10
+copyfrom [10]
+outbox
+
+jump ulang

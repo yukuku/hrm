@@ -128,6 +128,16 @@ def parse_a(q, fn):
                 pc += 1
                 continue
 
+            # 1 arg: ptr
+            m = re.match(ur'(copyfrom|copyto|add|sub|bumpup|bumpdn)\s*\[\s*(\d+)\s*\]$', line)
+            if m:
+                cmd, addr = m.group(1), int(m.group(2))
+                if cmd not in q.cmds:
+                    err(u'command not allowed on this level: {}'.format(cmd))
+                res.insts.append((cmd, 'ptr', addr))
+                pc += 1
+                continue
+
             # 1 arg: addr
             m = re.match(ur'(copyfrom|copyto|add|sub|bumpup|bumpdn)\s+(\d+)$', line)
             if m:
@@ -151,6 +161,9 @@ class Data:
         print u'DATA (total {})'.format(len(self.boxes))
         for box in self.boxes:
             print u'  {}'.format(box)
+
+    def __str__(self):
+        return ' '.join(str(e) for e in self.boxes)
 
 
 def parse_data(fn):
@@ -184,7 +197,7 @@ def run(q, a, inn):
     innpc = 0
     mem = q.mem[:]
     acc = None
-    out = []
+    out = Data()
 
     def err(desc):
         raise ValueError(u'runtime error in pc {}: {}'.format(pc, desc))
@@ -192,6 +205,16 @@ def run(q, a, inn):
     def reject_str(val, desc):
         if isinstance(val, basestring):
             err(desc)
+
+    def resolve_addr(typ, val):
+        if typ == 'addr':
+            return val
+        elif typ == 'ptr':
+            act = mem[val]
+            if act is None:
+                err(u'addr {} points to None'.format(val))
+            reject_str(act, u'addr {} points to a character {}'.format(val, act))
+            return act
 
     while True:
         if pc >= len(a.insts):
@@ -214,7 +237,7 @@ def run(q, a, inn):
         if cmd == 'outbox':
             if acc is None:
                 err(u'cannot outbox None at accumulator')
-            out.append(acc)
+            out.boxes.append(acc)
             acc = None
             pc += 1
             continue
@@ -228,7 +251,7 @@ def run(q, a, inn):
             continue
 
         if cmd == 'copyfrom':
-            addr = inst[2]
+            addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'None is at mem addr {}'.format(addr))
 
@@ -237,7 +260,7 @@ def run(q, a, inn):
             continue
 
         if cmd == 'copyto':
-            addr = inst[2]
+            addr = resolve_addr(inst[1], inst[2])
             if acc is None:
                 err(u'cannot copy None to addr {}'.format(addr))
 
@@ -246,7 +269,7 @@ def run(q, a, inn):
             continue
 
         if cmd == 'add':
-            addr = inst[2]
+            addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'cannot add accumulator to None at addr {}'.format(addr))
             reject_str(mem[addr], u'addr {} contains a character'.format(addr))
@@ -272,7 +295,7 @@ def run(q, a, inn):
             continue
 
         if cmd == 'sub':
-            addr = inst[2]
+            addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'cannot do accumulator sub None at addr {}'.format(addr))
             reject_str(mem[addr], u'addr {} contains a character'.format(addr))
@@ -299,7 +322,7 @@ def run(q, a, inn):
             continue
 
         if cmd == 'bumpup':
-            addr = inst[2]
+            addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'cannot bumpup addr {}'.format(addr))
             reject_str(mem[addr], u'addr {} contains a character'.format(addr))
@@ -310,7 +333,7 @@ def run(q, a, inn):
             continue
 
         if cmd == 'bumpdn':
-            addr = inst[2]
+            addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'cannot bumpdn addr {}'.format(addr))
             reject_str(mem[addr], u'addr {} contains a character'.format(addr))
@@ -345,12 +368,12 @@ def main():
         inn.dump()
 
         out_right = parse_data(outfile)
-        out_boxes = run(q, a, inn)
+        out_test = run(q, a, inn)
 
-        if out_boxes == out_right.boxes:
-            print u'BETUUUUUUUUUUUULLLLLLLLLLL'
+        if out_test.boxes == out_right.boxes:
+            print u'BETUUUUUUUUUUUULLLLLLLLLLL, output: {}'.format(out_test)
         else:
-            print u'SALAHHHH, output mu {}, harusnya {}'.format(out_boxes, out_right.boxes)
+            print u'SALAHHHH, output mu {}, harusnya {}'.format(out_test, out_right)
 
 
 main()
