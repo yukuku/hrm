@@ -12,8 +12,6 @@ ALL_CMDS = [
     'jump', 'jumpz', 'jumpn',
 ]
 
-ALL_CMDS_PATTERN = u'|'.join(ALL_CMDS)
-
 
 class Q:
     def __init__(self):
@@ -44,6 +42,9 @@ def parse_q(fn):
             if line.startswith('//'):
                 print line
                 continue
+
+            if line == 'all':
+                [res.cmds.add(cmd) for cmd in ALL_CMDS]
 
             if line in ALL_CMDS:
                 res.cmds.add(line)
