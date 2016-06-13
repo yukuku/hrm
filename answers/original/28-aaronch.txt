@@ -1,0 +1,66 @@
+udah:
+inbox
+copyto 0
+inbox
+copyto 1
+inbox
+copyto 2
+copyfrom 0
+sub 1
+jumpn p
+copyfrom 0
+sub 2
+jumpn t
+copyfrom 0
+copyto 3
+copyfrom 2
+copyto 0
+copyfrom 3
+copyto 2
+p:
+copyfrom 0
+sub 1
+jumpn h
+copyfrom 1
+copyto 3
+copyfrom 0
+copyto 1
+copyfrom 3
+copyto 0
+t:
+copyfrom 0
+sub 2
+jumpn l
+copyfrom 2
+copyto 3
+copyfrom 0
+copyto 2
+copyfrom 3
+copyto 0
+l:
+copyfrom 0
+copyto 3
+copyfrom 1
+copyto 0
+copyfrom 3
+copyto 1
+h:
+copyfrom 1
+copyto 3
+copyfrom 2
+copyto 1
+copyfrom 3
+copyto 2
+
+
+
+
+
+
+copyfrom 0
+outbox
+copyfrom 1
+outbox
+copyfrom 2
+outbox
+jump udah

@@ -1,0 +1,19 @@
+ulang:
+
+// reset mulai dari 0 lagi
+copyfrom 2
+copyto 0
+
+// mulai ngejumlah
+lagi:
+inbox
+jumpz udahan
+add 0
+copyto 0
+jump lagi
+
+udahan:
+copyfrom 0
+outbox
+
+jump ulang

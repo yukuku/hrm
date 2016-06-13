@@ -1,0 +1,13 @@
+// Buatlah singkatan dari kata-kata yang ada di inbox dengan mengambil huruf pertama dari setiap kata.
+//
+// Setiap kata dimulai dengan satu bilangan yang menyatakan jumlah huruf.
+// Setiap kata minimal terdiri dari 1 huruf.
+//
+// Contoh
+// input: 2 G A 4 P A K E 4 L A M A
+// output: G P L
+
+all
+
+mem size 4
+mem[3] = 0

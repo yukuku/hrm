@@ -1,0 +1,8 @@
+// Setiap bilangan di INBOX tambahin 2 lalu keluarin ke OUTBOX
+
+all
+
+mem size 100
+mem[50] = 0
+mem[51] = A
+

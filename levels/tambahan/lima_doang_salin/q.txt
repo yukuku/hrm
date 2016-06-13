@@ -1,0 +1,16 @@
+// Setiap ketemu bilangan 5 di input, keluarkan karakter 'L'.
+//
+// Input hanya terdiri dari bilangan.
+//
+// Contoh
+// input: 5 5 5 (ada 3 buah bilangan 5)
+// output: L L L
+//
+// input: 0 5 0 7 5 5 44 5 88 4 5 5 5 (ada 7 buah bilangan 5)
+// output: L L L L L L L
+
+all
+
+mem size 5
+mem[3] = L
+mem[4] = 5

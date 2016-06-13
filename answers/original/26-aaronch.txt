@@ -1,0 +1,18 @@
+loh:
+copyfrom 9
+copyto 5
+inbox
+copyto 1
+inbox
+copyto 2
+b:
+copyfrom 1
+sub 2
+copyto 1
+jumpn DIEM
+bumpup 5
+jump b
+DIEM:
+copyfrom 5
+outbox
+jump loh

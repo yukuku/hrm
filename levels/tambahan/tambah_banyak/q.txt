@@ -1,0 +1,12 @@
+// Jumlahkan setiap bilangan dari INBOX sampe ketemu bilangan 0
+
+inbox
+outbox
+copyfrom
+copyto
+add
+jump
+jumpz
+
+mem size 3
+mem[2] = 0

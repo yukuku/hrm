@@ -1,0 +1,7 @@
+bumpup 50
+bumpup 50
+blablabla:
+inbox
+add 50
+outbox
+jump blablabla

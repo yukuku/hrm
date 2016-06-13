@@ -1,0 +1,15 @@
+ulang:
+inbox
+copyto 0
+inbox
+copyto 1
+act:
+copyfrom 0
+sub 1
+jumpn udahan
+copyto 0
+jump act
+udahan:
+add 1
+outbox
+jump ulang
