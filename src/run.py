@@ -109,6 +109,9 @@ def parse_a(q, fn):
                 res.labels[lbl] = pc
                 continue
 
+            # print: always allowed
+            # m = re.match(r'(print)\s+')
+
             # 0 args
             m = re.match(ur'(inbox|outbox)$', line)
             if m:
@@ -370,6 +373,8 @@ def main():
 
         out_right = parse_data(outfile)
         out_test = run(q, a, inn)
+
+        print 'DATA FILE: {}'.format(infile)
 
         if out_test.boxes == out_right.boxes:
             print u'BETUUUUUUUUUUUULLLLLLLLLLL, output: {}'.format(out_test)
