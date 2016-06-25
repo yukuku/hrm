@@ -17,10 +17,21 @@ copyfrom 2
 copyto 0
 copyfrom 3
 copyto 2
+
 p:
 copyfrom 0
-sub 1
+sub 2
 jumpn h
+copyfrom 1
+sub 2
+//jumpn g
+copyfrom 2
+outbox
+copyfrom 0
+outbox
+copyfrom 1
+outbox
+jump udah
 copyfrom 1
 copyto 3
 copyfrom 0
@@ -28,7 +39,7 @@ copyto 1
 copyfrom 3
 copyto 0
 t:
-copyfrom 0
+copyfrom 1
 sub 2
 jumpn l
 copyfrom 2
@@ -44,7 +55,11 @@ copyfrom 1
 copyto 0
 copyfrom 3
 copyto 1
+jump out
 h:
+copyfrom 1
+sub 2
+jumpn out
 copyfrom 1
 copyto 3
 copyfrom 2
@@ -56,7 +71,7 @@ copyto 2
 
 
 
-
+out:
 copyfrom 0
 outbox
 copyfrom 1
