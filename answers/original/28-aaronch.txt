@@ -5,6 +5,9 @@ inbox
 copyto 1
 inbox
 copyto 2
+
+
+yangitutu:
 copyfrom 0
 sub 1
 jumpn p
@@ -17,6 +20,7 @@ copyfrom 2
 copyto 0
 copyfrom 3
 copyto 2
+jump yangitutu
 
 p:
 copyfrom 0
