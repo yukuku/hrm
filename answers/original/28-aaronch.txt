@@ -11,6 +11,9 @@ jumpn p
 copyfrom 0
 sub 2
 jumpn t
+copyfrom 1
+sub 2
+jump y
 copyfrom 0
 copyto 3
 copyfrom 2
@@ -77,5 +80,22 @@ outbox
 copyfrom 1
 outbox
 copyfrom 2
+outbox
+jump udah
+
+
+
+
+
+
+
+
+
+y:
+copyfrom 1
+outbox
+copyfrom 2
+outbox
+copyfrom 0
 outbox
 jump udah
