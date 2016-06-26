@@ -368,13 +368,13 @@ def main():
         if not os.path.isfile(infile) or not os.path.isfile(outfile):
             raise ValueError(u'Can not read {} or {}'.format(infile, outfile))
 
+        print 'DATA FILE: {}'.format(infile)
+
         inn = parse_data(infile)
         inn.dump()
 
         out_right = parse_data(outfile)
         out_test = run(q, a, inn)
-
-        print 'DATA FILE: {}'.format(infile)
 
         if out_test.boxes == out_right.boxes:
             print u'BETUUUUUUUUUUUULLLLLLLLLLL, output: {}'.format(out_test)

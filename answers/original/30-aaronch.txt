@@ -1,0 +1,9 @@
+l:
+inbox
+copyto 24
+n:
+copyfrom [24]
+jumpz l
+outbox
+bumpup 24
+jump n

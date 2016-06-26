@@ -1,0 +1,6 @@
+n:
+inbox
+copyto 13
+copyfrom [13]
+outbox
+jump n
