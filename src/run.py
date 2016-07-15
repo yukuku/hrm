@@ -153,6 +153,21 @@ def parse_a(q, fn):
                 pc += 1
                 continue
 
+            # 1 arg: 'mem' or 'acc' or number or (double-quoted string)
+            m = re.match(ur'(print)\s+(mem|acc|\d+|"([^"]*)")$', line)
+            if m:
+                cmd, arg = m.group(1), m.group(2)
+                if arg == 'mem':
+                    res.insts.append((cmd, 'mem', 'all'))
+                elif arg == 'acc':
+                    res.insts.append((cmd, 'acc'))
+                elif all(c in '0123456789' for c in arg):
+                    res.insts.append((cmd, 'mem', int(arg)))
+                else:
+                    res.insts.append((cmd, 'str', m.group(3)))
+                pc += 1
+                continue
+
             err(u'unknown instruction')
 
     return res
@@ -209,6 +224,10 @@ def run(q, a, inn):
 
     def reject_str(val, desc):
         if isinstance(val, basestring):
+            err(desc)
+
+    def reject_both_str(val1, val2, desc):
+        if isinstance(val1, basestring) and isinstance(val2, basestring):
             err(desc)
 
     def resolve_addr(typ, val):
@@ -274,15 +293,25 @@ def run(q, a, inn):
             continue
 
         if cmd == 'add':
+            # num + num is OK, result: num
+            # char + num is OK, result: char
+            # num + char is OK, result: char
+            # char + char is NOT OK
+
             addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'cannot add accumulator to None at addr {}'.format(addr))
-            reject_str(mem[addr], u'addr {} contains a character'.format(addr))
             if acc is None:
                 err(u'cannot add addr {} to None at accumulator'.format(addr))
-            reject_str(acc, u'accumulator contains a character')
+            reject_both_str(acc, mem[addr], u'accumulator and addr {} both contain a character'.format(addr))
 
-            acc = acc + mem[addr]
+            if isinstance(acc, basestring):
+                acc = unichr(ord(acc) + mem[addr])
+            elif isinstance(mem[addr], basestring):
+                acc = unichr(acc + ord(mem[addr]))
+            else:
+                acc = acc + mem[addr]
+
             pc += 1
             continue
 
@@ -300,15 +329,26 @@ def run(q, a, inn):
             continue
 
         if cmd == 'sub':
+            # num - num is OK, result: num
+            # char - num is OK, result: char
+            # num - char is NOT OK
+            # char - char is OK, result: num
+
             addr = resolve_addr(inst[1], inst[2])
             if mem[addr] is None:
                 err(u'cannot do accumulator sub None at addr {}'.format(addr))
-            reject_str(mem[addr], u'addr {} contains a character'.format(addr))
             if acc is None:
                 err(u'cannot do None at accumulator sub addr {}'.format(addr))
-            reject_str(acc, u'accumulator contains a character')
 
-            acc = acc - mem[addr]
+            if isinstance(acc, basestring):
+                if isinstance(mem[addr], basestring):
+                    acc = ord(acc) - ord(mem[addr])
+                else:
+                    acc = unichr(ord(acc) - mem[addr])
+            else:
+                reject_str(mem[addr], u'addr {} contains a character'.format(addr))
+                acc = acc - mem[addr]
+
             pc += 1
             continue
 
@@ -348,9 +388,25 @@ def run(q, a, inn):
             pc += 1
             continue
 
+        if cmd == 'print':
+            arg0 = inst[1]
+            if arg0 == 'mem':
+                arg1 = inst[2]
+                if arg1 == 'all':
+                    print 'PRINT: {}'.format(' '.join(str(e) for e in mem))
+                else:
+                    print 'PRINT: {}'.format(mem[arg1])
+            elif arg0 == 'acc':
+                print 'PRINT: {}'.format(acc)
+            else:
+                arg1 = inst[2]
+                print 'PRINT: {}'.format(arg1)
+            pc += 1
+            continue
+
         err(u'unknown command: {}'.format(cmd))
 
-    print 'At the end of the program, memory contains {}'.format(','.join(str(e) for e in mem))
+    print 'At the end of the program, memory contains: {}'.format(' '.join(str(e) for e in mem))
 
     return out
 
@@ -382,7 +438,7 @@ def main():
         if out_test.boxes == out_right.boxes:
             print u'BETUUUUUUUUUUUULLLLLLLLLLL, output: {}'.format(out_test)
         else:
-            print u'SALAHHHH, output mu {}, harusnya {}'.format(out_test, out_right)
+            print u'SALAHHHH, output mu: {}, harusnya: {}'.format(out_test, out_right)
 
 
 main()
