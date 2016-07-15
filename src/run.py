@@ -350,6 +350,8 @@ def run(q, a, inn):
 
         err(u'unknown command: {}'.format(cmd))
 
+    print 'At the end of the program, memory contains {}'.format(','.join(str(e) for e in mem))
+
     return out
 
 
