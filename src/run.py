@@ -45,6 +45,7 @@ def parse_q(fn):
 
             if line == 'all':
                 [res.cmds.add(cmd) for cmd in ALL_CMDS]
+                continue
 
             if line in ALL_CMDS:
                 res.cmds.add(line)
