@@ -1,0 +1,16 @@
+ulang:
+
+inbox
+copyto 0
+sub 8
+jumpn kecilin
+copyfrom 0
+jump out
+
+kecilin:
+copyfrom 0
+add 6
+
+out:
+outbox
+jump ulang

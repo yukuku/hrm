@@ -1,0 +1,10 @@
+// For every zero-terminated string in the inbox,
+// output the length of the string.
+
+// Kirim ke outbox panjang setiap string di inbox.
+// Setiap string diakhiri dengan bilangan 0.
+
+all
+
+mem size 4
+mem[3] = 0

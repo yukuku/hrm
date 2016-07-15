@@ -1,0 +1,23 @@
+// Make all words appear in title case.
+// Title case means the first letter of the word is uppercase, the rest are lowercase.
+// Words are separated by the number zero.
+// Output the number zero as well.
+
+// Ubah semua kata menjadi judul.
+// Judul berarti huruf pertamanya huruf besar, selebihnya huruf kecil.
+// Kata-kata dipisahkan dengan bilangan nol.
+// Keluarkan juga bilangan nol.
+
+all
+
+mem size 10
+
+// This is the difference between the numeric value of 'A' and 'a'
+// 'A' is actually 65
+// 'a' is actually 97
+mem[6] = 32
+mem[7] = A
+mem[8] = a
+mem[9] = 0
+
+

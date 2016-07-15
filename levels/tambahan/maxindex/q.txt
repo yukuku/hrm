@@ -1,0 +1,9 @@
+// Read the input until you encounter the number 0.
+// Then, output the biggest number (excluding the number 0)
+// and the zero-based position where it appears.
+
+// Example:
+// Input: 1 3 5 0
+// (1 is in position 0. 3 is in position 1. 5 is in position 2.)
+// Output: 5 2
+// (The biggest number is 5, which occurs in position 2.)

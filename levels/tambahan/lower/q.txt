@@ -1,0 +1,18 @@
+// Convert all uppercase letters from the inbox to lowercase.
+// Inbox contains only uppercase and lowercase letters.
+
+// Ubah semua huruf besar dari inbox menjadi huruf kecil.
+// Inbox mengandung hanya huruf besar dan kecil.
+
+all
+
+mem size 10
+
+// This is the difference between the numeric value of 'A' and 'a'
+// 'A' is actually 65
+// 'a' is actually 97
+mem[6] = 32
+
+mem[7] = A
+mem[8] = a
+
