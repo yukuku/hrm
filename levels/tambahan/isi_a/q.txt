@@ -1,0 +1,9 @@
+// Fill in all the empty memory slots with 'A'
+
+all
+
+mem size 8
+mem[0] = A
+mem[6] = 1
+mem[7] = 5
+

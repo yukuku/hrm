@@ -1,0 +1,9 @@
+z:
+copyfrom 0
+copyto [6]
+copyfrom 6
+sub 7
+jumpz ud
+bumpup 6
+jump z
+ud:
